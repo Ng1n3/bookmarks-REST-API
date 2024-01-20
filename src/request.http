@@ -1,0 +1,7 @@
+### sign up a user
+
+POST http://localhost:3030/auth/signup
+
+
+### sin in
+POST http://localhost:3030/auth/signin

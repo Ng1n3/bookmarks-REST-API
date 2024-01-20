@@ -36,6 +36,7 @@ lerna-debug.log*
 
 # UNECESSARY 
 .prettierrc
+.env
 .gitignore
 .eslintrc.js
 .nest-cli.json
