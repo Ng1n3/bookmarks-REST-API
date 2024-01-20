@@ -34,11 +34,12 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# UNECESSARY 
+
 .prettierrc
 .env
 .gitignore
-.eslintrc.js
+.eslintrc.json
 .nest-cli.json
+docker-compose-yml
 package-lock.json
 tsconfig.build.json
