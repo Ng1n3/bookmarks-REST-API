@@ -1,9 +1,12 @@
-import { Controller, Delete, Patch, Post, Get, Param, ParseIntPipe, UseGuards, Body } from '@nestjs/common';
+import { Controller, Delete, Patch, Post, Get, Param, ParseIntPipe, UseGuards, Body, HttpCode } from '@nestjs/common';
 import { JwtGuard } from 'src/auth/guard';
+// import { JwtGuard } from '../../src/auth/guard';
 import { BookmarkService } from './bookmark.service';
-import { GetUser } from 'src/auth/decorator';
+// import { GetUser } from '../../src/auth/decorator';
 import { CreateBookmarkDto } from './dto/create-bookmark.dto';
 import { EditBookmarkDto } from './dto/edit-bookmark.dto';
+import { GetUser } from 'src/auth/decorator';
+import { HttpStatusCode } from 'axios';
 
 @UseGuards(JwtGuard)
 @Controller('bookmarks')
@@ -30,6 +33,7 @@ export class BookmarkController {
     return this.bookmarkService.editBookmarById(userId, bookmarkId, dto)
   }
 
+  @HttpCode(HttpStatusCode.NoContent)
   @Delete(':id')
   deleteBookmarkById(@GetUser('id') userId: number, @Param('id', ParseIntPipe) bookmarkId: number) {
     return this.bookmarkService.deleteBookmarkById(userId, bookmarkId);
